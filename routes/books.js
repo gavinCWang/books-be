@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-let books = [{id:1,name:"book1",price:200}, {id:2,name:"book2",price:230}]
+let books = [{_id:1,name:"book1",price:200}, {_id:2,name:"book2",price:230}]
 var maxId = 2
 /* GET users listing. */
 
@@ -23,6 +23,7 @@ router.route('/')
 
     })
 router.delete('/:id', function (req, res) {
+    let id = req.params.id
     let index = books.findIndex(book => book._id == id)
     books.splice(index, 1)
     res.json({})
